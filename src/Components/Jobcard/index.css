@@ -3,10 +3,11 @@ body {
   font-family: Arial, sans-serif;
 }
 .job-card {
-  background-color: white;
+  background: white;
   padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px #0f172a08;
 }
 
 .company-row {
@@ -16,30 +17,59 @@ body {
 }
 
 .initial {
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background-color: #6366f1;
-  color: white;
+  background: #dbeafe;
+  color: #1d4ed8;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-weight: bold;
-  font-size: 18px;
 }
 
 .company-name {
-  margin: 0;
   font-size: 20px;
+  margin: 0;
 }
 
 .role {
-  margin: 12px 0 5px;
-  color: #374151;
+  color: #64748b;
+  margin: 12px 0;
 }
 
 .status {
-  margin: 0;
-  color: #6366f1;
-  font-weight: bold;
+  display: inline-block;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.job-card button {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+
+.job-card button:hover {
+  background: #fecaca;
+}
+
+@media (max-width: 600px) {
+  .app {
+    margin: 16px auto;
+    padding: 14px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input,
+  form select {
+    width: 100%;
+  }
 }
