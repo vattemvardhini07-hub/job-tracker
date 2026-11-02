@@ -12,6 +12,7 @@ const Login = ({ setIsLoggedIn }) => {
   const onSubmitLogin = (event) => {
   event.preventDefault()
   if(username !== "" && password !==""){
+    localStorage.setItem('isLoggedIn', 'true')
     setIsLoggedIn(true)
     navigate("/")
   }

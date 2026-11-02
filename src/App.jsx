@@ -5,9 +5,12 @@ import Login from './Components/Login'
 import './App.css'
 import ProtectedRoute from './Components/ProtectedRoute'
 import { useState } from 'react'
+import Profile from './Components/Profile'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+  return localStorage.getItem('isLoggedIn') === 'true'
+})
   const location = useLocation()
   const isLoginPage = location.pathname === '/login'
 
@@ -30,6 +33,11 @@ function App() {
               isActive ? 'nav-link active' : 'nav-link'
             }>
               <span>⌕</span> Find Jobs
+            </NavLink>
+            <NavLink to="/profile" className={({ isActive }) =>
+              isActive ? 'nav-link active' : 'nav-link'
+            }>
+              My Profile
             </NavLink>
           </nav>
         </aside>
@@ -54,6 +62,10 @@ function App() {
           }
         />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/profile" element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Profile />
+            </ProtectedRoute>}/>
         </Routes>
       </main>
     </div>
