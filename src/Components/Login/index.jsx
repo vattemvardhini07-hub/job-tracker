@@ -13,6 +13,7 @@ const Login = ({ setIsLoggedIn }) => {
   event.preventDefault()
   if(username !== "" && password !==""){
     localStorage.setItem('isLoggedIn', 'true')
+    localStorage.setItem('username', username)
     setIsLoggedIn(true)
     navigate("/")
   }

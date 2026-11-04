@@ -11,9 +11,11 @@ body {
 }
 
 .app {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 24px;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -259,9 +261,16 @@ button:hover {
 .sidebar {
   width: 240px;
   min-width: 240px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: #111827;
   color: white;
   padding: 30px 18px;
+}
+
+.sidebar .logout-btn {
+  margin-top: auto;
 }
 
 .logo {
@@ -334,4 +343,21 @@ button:hover {
     gap: 7px;
     padding: 12px 8px;
   }
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff0f0;
+  color: #dc2626;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background-color: #fee2e2;
 }

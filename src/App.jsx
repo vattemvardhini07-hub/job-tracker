@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
+import { Routes, Route, NavLink, useLocation,useNavigate  } from 'react-router-dom'
 import MyApplications from './Components/MyApplications'
 import FindJob from './Components/FindJob.jsx'
 import Login from './Components/Login'
@@ -13,6 +13,14 @@ function App() {
 })
   const location = useLocation()
   const isLoginPage = location.pathname === '/login'
+  const navigate = useNavigate()
+const onLogout =()=>{
+  localStorage.removeItem('isLoggedIn')
+  localStorage.removeItem('username')
+  setIsLoggedIn(false) 
+  navigate('/login')
+  
+}
 
   return (
     <div className={isLoginPage ? 'app login-layout' : 'app dashboard-layout'}>
@@ -40,6 +48,9 @@ function App() {
               My Profile
             </NavLink>
           </nav>
+          <button onClick={onLogout} className="logout-btn">
+           Logout
+           </button>
         </aside>
       )}
 
